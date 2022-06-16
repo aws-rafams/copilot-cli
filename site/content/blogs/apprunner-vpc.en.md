@@ -107,7 +107,7 @@ This will create a file under `./copilot/demo-service/addons/demoDb.yml` which c
 
 By viewing the manifest file you will see that the database will be created by default inside of the private subnets associated with the Copilot application and environment VPC.
 
-Notice that Copilot will use [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) to generate the database password and the ser. To be able to access the database password, AWS Copilot will inject an environment variable with the secret’s ARN so we can later use the SDK to retrieve the password. In this demo, I have used Python (so [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) will be used), and the environment variable injected will be named `DEMO_DB_SECRET_ARN`. In order to retrieve the password using Python we can use the following code:
+Notice that Copilot will use [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) to generate the database password. To be able to access the database password, AWS Copilot will inject an environment variable with the secret’s ARN so we can later use the SDK to retrieve the password. In this demo, I have used Python (so [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) will be used), and the environment variable injected will be named `DEMO_DB_SECRET_ARN`. In order to retrieve the password using Python we can use the following code:
 
 ```
 sm_client = boto3.client('secretsmanager')
